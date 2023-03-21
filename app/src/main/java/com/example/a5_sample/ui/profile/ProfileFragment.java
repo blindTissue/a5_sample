@@ -48,6 +48,15 @@ public class ProfileFragment extends Fragment {
         myPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         // TODO: add code to retrieve any previously saved data and display in fields
+        String owner_name = myPrefs.getString("loginName", "Owner");
+        String dog_name = myPrefs.getString("dog_name", "Dog");
+        String dog_breed = myPrefs.getString("dog_breed", "Breed");
+        String dog_age = myPrefs.getString("dog_age", "Age");
+        owner.setText(owner_name);
+        dog.setText(dog_name);
+        breed.setText(dog_breed);
+        age.setText(dog_age);
+
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override

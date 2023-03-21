@@ -58,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
         Context context = getApplicationContext();
         SharedPreferences myPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         String name = myPrefs.getString("loginName", "Owner");
+
+
+
+
     }
 
     // TODO: uncomment these sections to activate the Options menu after creating it in layout/menu
