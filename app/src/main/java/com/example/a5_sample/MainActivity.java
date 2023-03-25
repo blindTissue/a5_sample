@@ -61,11 +61,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
     }
 
-    // TODO: uncomment these sections to activate the Options menu after creating it in layout/menu
-    /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -77,12 +74,11 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_logout) {
-            // TODO: add code to close this activity
-
+            finish();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
-     */
+
 
 }

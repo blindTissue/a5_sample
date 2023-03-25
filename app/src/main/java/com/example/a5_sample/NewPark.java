@@ -17,9 +17,11 @@ public class NewPark extends AppCompatActivity {
         sbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: add code here to program the SAVE action
-
-
+                EditText name = (EditText) findViewById(R.id.new_park);
+                String parkName = name.getText().toString();
+                Park newPark = new Park(parkName, 0);
+                MainActivity.parks.add(newPark);
+                finish();
             }
         });
 

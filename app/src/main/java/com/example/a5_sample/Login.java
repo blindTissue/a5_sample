@@ -16,8 +16,6 @@ import android.content.Intent;
 public class Login extends AppCompatActivity {
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,12 +25,20 @@ public class Login extends AppCompatActivity {
         SharedPreferences myPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 
 
+        //Get saved login name if there is one.
+        String savedName = myPrefs.getString("loginName", "Owner");
+        //Set saveName to the loginName field.
+        EditText loginNameField = (EditText) findViewById(R.id.login_name);
+        loginNameField.setText(savedName);
+
+
 
         Button lbtn = (Button) findViewById(R.id.login_button);
         lbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String loginName = ((EditText) findViewById(R.id.login_name)).getText().toString();
+
                 SharedPreferences.Editor peditor = myPrefs.edit();
                 peditor.putString("loginName", loginName);
                 peditor.apply();

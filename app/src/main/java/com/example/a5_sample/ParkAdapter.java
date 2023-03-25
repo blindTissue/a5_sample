@@ -50,12 +50,23 @@ public class ParkAdapter extends ArrayAdapter<Park> {
                 if (checkin.getText() == "Check out") {
                     checkin.setText("Check in");
                     myact.current = null; // no longer checked in anywhere
-        // TODO: add code to update the status of park p and display the updated number of occupants
+
+                    p.setchecked_in(false);
+                    size.setText("" + p.getnumber());
+
 
                 }
                 else {
-        // TODO: update code to fully check into park p, but only if not currently in one
-                    checkin.setText("Check out");
+                    if (myact.current == null) {
+                        myact.current = p;
+                        p.setchecked_in(true);
+                        size.setText("" + p.getnumber());
+                        checkin.setText("Check out");
+                    }
+                    else {
+                        Toast.makeText(myact, "ERROR: MUST CHECKOUT FIRST", Toast.LENGTH_SHORT).show();
+                    }
+
                 }
             }
         });

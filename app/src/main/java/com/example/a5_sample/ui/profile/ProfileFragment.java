@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,8 +48,14 @@ public class ProfileFragment extends Fragment {
         Context context = getActivity().getApplicationContext();
         myPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 
-        // TODO: add code to retrieve any previously saved data and display in fields
         String owner_name = myPrefs.getString("loginName", "Owner");
+
+        // added this blob since empty string counts as valid loginName
+        if (owner_name.equals("")) {
+            owner_name = "Owner";
+        }
+
+
         String dog_name = myPrefs.getString("dog_name", "Dog");
         String dog_breed = myPrefs.getString("dog_breed", "Breed");
         String dog_age = myPrefs.getString("dog_age", "Age");
